@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <header style="background:${config.chatbotColor}; display: flex; justify-content: center; align-items: center;">
                     <h2>${config.titelMessage}</h2>
                     <span class="close-btn material-symbols-outlined">close</span>
-                    <img src="${config.headerImage}" alt="${config.headerImagealtText}">
+                    <img src="${config.headerImage || ''}" alt="${config.headerImagealtText || ''}">
                 </header>
                 <ul class="chatbox" style="height: 460px;">
                     <li class="chat incoming">
