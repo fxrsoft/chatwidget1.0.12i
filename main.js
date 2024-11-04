@@ -1,39 +1,39 @@
 import { styles } from './assets.js';
 
 document.addEventListener("DOMContentLoaded", function() {
-  function initChatbotWidget(config) {
-      const appDiv = document.querySelector("#app");
-      appDiv.style.overflow = "auto";
-      appDiv.innerHTML = `
-          <button class="chatbot-toggler" style="position: fixed; ${config.position}: 0; margin: 9px;">
-              ${config.chatbotToggler ? `<img src="${config.chatbotToggler}" alt="Chat Image">` : `<span class="material-symbols-rounded">mode_comment</span>`}
-              <span class="expand-text" style="position: absolute; animation: blink ${config.animationBlinkSec} linear infinite; animation-fill-mode: forwards; animation-iteration-count: ${config.animationBlinkIteration}; color: ${config.toggleButtonTextColor} !important; left: ${config.toggleButtonVPosition}; top: ${config.toggleButtonHPosition}; width: ${config.toggleButtonWidth}">
-                  ${config.toggleButtonText}
-              </span>
-              <span class="material-symbols-outlined">close</span>
-          </button>
-          <div class="chatbot" style="position: fixed; ${config.position}: 0;">
-              <header style="background:${config.chatbotColor}; display: flex; justify-content: center; align-items: center;">
-                  <h2>${config.titelMessage}</h2>
-                  <span class="close-btn material-symbols-outlined">close</span>
-                  <img src="${config.headerImage}" alt="${config.headerImagealtText}">
-              </header>
-              <ul class="chatbox" style="height: 460px;">
-                  <li class="chat incoming">
-                      <span class="material-symbols-outlined" style="background:${config.chatbotColor};">smart_toy</span>
-                      <p>${config.welcomeMessage}</p>
-                  </li>
-              </ul>
-              <div class="chat-input">
-                  <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
-                  <span id="send-btn" class="material-symbols-rounded">send</span>
-              </div>
-              <div class="footer">
-                  <p style="color:white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                  <p>powered by <a href="https://www.fxrsoft.com" target="_blank">fxrsoft</a></p>
-              </div>
-          </div>
-      `;
+    function initChatbotWidget(config) {
+        const appDiv = document.querySelector("#app");
+        appDiv.style.overflow = "auto";
+        appDiv.innerHTML = `
+            <button class="chatbot-toggler" style="position: fixed; ${config.position}: 0; margin: 9px;">
+                ${config.chatbotToggler ? `<img src="${config.chatbotToggler}" alt="Chat Image">` : `<span class="material-symbols-rounded">mode_comment</span>`}
+                <span class="expand-text" style="position: absolute; animation: blink ${config.animationBlinkSec} linear infinite; animation-fill-mode: forwards; animation-iteration-count: ${config.animationBlinkIteration}; color: ${config.toggleButtonTextColor} !important; left: ${config.toggleButtonVPosition}; top: ${config.toggleButtonHPosition}; width: ${config.toggleButtonWidth || 'auto'};">
+                    ${config.toggleButtonText}
+                </span>
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="chatbot" style="position: fixed; ${config.position}: 0;">
+                <header style="background:${config.chatbotColor}; display: flex; justify-content: center; align-items: center;">
+                    <h2>${config.titelMessage}</h2>
+                    <span class="close-btn material-symbols-outlined">close</span>
+                    <img src="${config.headerImage}" alt="${config.headerImagealtText}">
+                </header>
+                <ul class="chatbox" style="height: 460px;">
+                    <li class="chat incoming">
+                        <span class="material-symbols-outlined" style="background:${config.chatbotColor};">smart_toy</span>
+                        <p>${config.welcomeMessage}</p>
+                    </li>
+                </ul>
+                <div class="chat-input">
+                    <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+                    <span id="send-btn" class="material-symbols-rounded">send</span>
+                </div>
+                <div class="footer">
+                    <p style="color:white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>powered by <a href="https://www.fxrsoft.com" target="_blank">fxrsoft</a></p>
+                </div>
+            </div>
+        `;
   // Now that the chatbot HTML is inserted, you can select the elements
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
